@@ -1,6 +1,6 @@
-var tv = null;
+let tv = null;
 
-var clip_list = [
+const clip_list = [
     "content/video/neavetv/weird_dog.mp4"
     , "content/video/neavetv/adhisaya_piravi.mp4"
     , "content/video/neavetv/aerobic.mp4"
@@ -47,7 +47,6 @@ var clip_list = [
     , "content/video/neavetv/streetlamp.mp4"
     , "content/video/neavetv/useless_superpower.mp4"
     , "content/video/neavetv/wolf_spirit.mp4"
-
     , "content/video/yt/liesontheinternet.webm"
     , "content/video/yt/noice.webm"
     , "content/video/yt/kebab.webm"
@@ -110,16 +109,16 @@ var clip_list = [
     , "content/video/yt/2spooky.webm"
 ];
 
-var TV = function ( video_selector, interstitial_selector ) {
+const TV = function ( video_selector, interstitial_selector ) {
 
-    var _screen = $( video_selector );
-    var _interstitial = $( interstitial_selector );
-    var _self = this;
-    var _next_interstitial = false;
-    var _interstitial_start_time;
-    var _clip_pos = 0;
+    const _screen = $( video_selector );
+    const _interstitial = $( interstitial_selector );
+    const _self = this;
+    let _next_interstitial = false;
+    let _interstitial_start_time;
+    let _clip_pos = 0;
 
-    var _clips_shuffled = [];
+    const _clips_shuffled = [];
 
     /**
      *
@@ -132,11 +131,11 @@ var TV = function ( video_selector, interstitial_selector ) {
      */
     this.resizeVideo = function ( element ) {
         //console.log( element );
-        var iOriginalVideoHeight = element.videoHeight;
-        var iCurrentVideoHeight = _screen.height();
-        var iVideoContainerHeight = $( element ).parent().height();
-        var iCurrentScale = iOriginalVideoHeight / iCurrentVideoHeight;
-        var iScaleY = (iVideoContainerHeight / iOriginalVideoHeight) * iCurrentScale;
+        const iOriginalVideoHeight = element.videoHeight;
+        const iCurrentVideoHeight = _screen.height();
+        const iVideoContainerHeight = $( element ).parent().height();
+        const iCurrentScale = iOriginalVideoHeight / iCurrentVideoHeight;
+        const iScaleY = (iVideoContainerHeight / iOriginalVideoHeight) * iCurrentScale;
 
 //        console.log( "iOriginalVideoHeight", iOriginalVideoHeight );
 //        console.log( "iCurrentVideoHeight", iCurrentVideoHeight );
@@ -179,7 +178,7 @@ var TV = function ( video_selector, interstitial_selector ) {
             return;
         }
 
-        var clip_num = Math.round( Math.random() * (clip_list.length - 1) );
+        const clip_num = Math.round( Math.random() * (clip_list.length - 1) );
 
         _clip_pos++;
 
@@ -230,7 +229,7 @@ var TV = function ( video_selector, interstitial_selector ) {
      * @returns {*}
      */
     function shuffle( o ) {
-        for ( var j, x, i = o.length; i; j = Math.floor( Math.random() * i ), x = o[--i], o[i] = o[j], o[j] = x ) {
+        for ( let j, x, i = o.length; i; j = Math.floor( Math.random() * i ), x = o[--i], o[i] = o[j], o[j] = x ) {
             ;
         }
         return o;
